@@ -18,6 +18,11 @@ app.use(bodyParser.json({type: '*/*'}));
 
 router(app);
 
+//404 catch error
+app.use(function(req, res, next){
+  res.send({error:"404"});
+})
+
 // Server Setup
 const port = process.env.PORT || 3090;
 const server = http.createServer(app);
