@@ -5,5 +5,5 @@ module.exports = function (app) {
     //     res.send(['1', '2', '3']);
     // });
 
-    app.post('/sign', Authentication.signup);
+    app.post('/signup', Authentication.signup);
 };
