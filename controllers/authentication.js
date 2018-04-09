@@ -3,6 +3,7 @@ const User = require('../modules/user');
 const config = require('../config');
 
 function tokenForUser(user) {
+  //USER ID + OUR SECRET STRING = JSON WEB TOKEN
   const timestamp = new Date().getTime();
   return jwt.encode({ sub: user.id , iat: timestamp}, config.secret);
 }
