@@ -3,8 +3,15 @@ const User = require('../modules/user');
 const config = require('../config');
 
 function tokenForUser(user) {
+  //USER ID + OUR SECRET STRING = JSON WEB TOKEN
   const timestamp = new Date().getTime();
   return jwt.encode({ sub: user.id , iat: timestamp}, config.secret);
+}
+
+exports.signin = function (req, res, next) {
+//  User has already their mail and password auth`d
+//  We just need to give them a token
+     res.send({token: tokenForUser(req.user)});
 }
 
 exports.signup = function (req, res, next) {
